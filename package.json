@@ -1,13 +1,14 @@
 {
-  "name": "keystone-demo",
-  "version": "1.0.1",
+  "name": "RCH-app-website",
+  "version": "0.0.1",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/JedWatson/keystone-demo.git"
+    "url": "https://github.com/baszurburg/RCH-app-website.git"
   },
   "dependencies": {
     "keystone": "https://github.com/keystonejs/keystone.git",
+    "restful-keystone": "^0.3.0",
     "async": "^1.5.0",
     "lodash": "^3.10.1",
     "csv": "^0.4.6",

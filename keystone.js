@@ -9,8 +9,8 @@ var keystone = require('keystone');
 
 keystone.init({
 
-	'name': 'Keystone Demo',
-	'brand': 'Demo',
+	'name': 'RCH app website',
+	'brand': 'RCH',
 
 	'favicon': 'public/favicon.ico',
 	'less': 'public',

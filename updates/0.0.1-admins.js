@@ -4,13 +4,13 @@ var User = keystone.list('User');
 module.exports = function (done) {
 	new User.model({
 		name: {
-			first: 'Demo',
-			last: 'User'
+			first: 'Bas',
+			last: 'Zurburg'
 		},
-		email: 'demo@keystonejs.com',
-		password: 'demo',
+		email: 'bas.zurburg@xs4all.nl',
+		password: 'delicionu',
 		isAdmin: true,
-		isProtected: true,
+		isProtected: false
 	})
-	.save(done);
+		.save(done);
 };
