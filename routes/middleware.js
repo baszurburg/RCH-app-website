@@ -1,4 +1,45 @@
 var _ = require('lodash');
+var querystring = require('querystring');
+var keystone = require('keystone');
+
+exports.initLocals = function(req, res, next) {
+
+	var locals = res.locals;
+
+	locals.navLinks = [
+		{ label: 'Home', key: 'home', href: '/' },
+		{ label: 'Blog', key: 'blog', href: '/blog' },
+		{ label: 'Gallery', key: 'gallery', href: '/gallery' },
+		{ label: 'Contact', key: 'contact', href: '/contact' }
+	];
+
+	locals.user = req.user;
+
+	locals.basedir = keystone.get('basedir');
+
+	locals.page = {
+		title: 'R.C.H. app',
+		path: req.url.split("?")[0] // strip the query - handy for redirecting back to the page
+	};
+
+	//locals.qs_set = qs_set(req, res);
+
+	if (req.cookies.target && req.cookies.target == locals.page.path) res.clearCookie('target');
+
+	//var bowser = require('../lib/node-bowser').detect(req);
+    //
+	//locals.system = {
+	//	mobile: bowser.mobile,
+	//	ios: bowser.ios,
+	//	iphone: bowser.iphone,
+	//	ipad: bowser.ipad,
+	//	android: bowser.android
+	//};
+
+	next();
+
+};
+
 
 exports.theme = function (req, res, next) {
 	if (req.query.theme) {
@@ -21,7 +62,7 @@ exports.theme = function (req, res, next) {
 		'Spacelab',
 		'Superhero',
 		'United',
-		'Yeti',
+		'Yeti'
 	];
 	res.locals.currentTheme = req.session.theme || 'Bootstrap';
 	next();

@@ -2,16 +2,20 @@ const keystone = require('keystone');
 const middleware = require('./middleware');
 const importRoutes = keystone.importer(__dirname);
 
-keystone.pre('routes', function (req, res, next) {
-	res.locals.navLinks = [
-		{ label: 'Home', key: 'home', href: '/' },
-		{ label: 'Blog', key: 'blog', href: '/blog' },
-		{ label: 'Gallery', key: 'gallery', href: '/gallery' },
-		{ label: 'Contact', key: 'contact', href: '/contact' },
-	];
-	res.locals.user = req.user;
-	next();
-});
+var restful = require('restful-keystone')(keystone);
+
+//keystone.pre('routes', function (req, res, next) {
+//	res.locals.navLinks = [
+//		{ label: 'Home', key: 'home', href: '/' },
+//		{ label: 'Blog', key: 'blog', href: '/blog' },
+//		{ label: 'Gallery', key: 'gallery', href: '/gallery' },
+//		{ label: 'Contact', key: 'contact', href: '/contact' },
+//	];
+//	res.locals.user = req.user;
+//	next();
+//});
+
+keystone.pre('routes', middleware.initLocals);
 
 keystone.pre('render', middleware.theme);
 keystone.pre('render', middleware.flashMessages);
@@ -38,4 +42,11 @@ exports = module.exports = function (app) {
 	// Downloads
 	app.get('/download/users', routes.download.users);
 
-}
+	//Explicitly define which lists we want exposed
+	restful.expose({
+		Post : {
+			methods: ["list", "retrieve", "create"]
+		}
+	}).start();
+
+};

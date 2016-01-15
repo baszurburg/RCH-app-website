@@ -11,7 +11,7 @@ exports = module.exports = function (req, res) {
 	// Init locals
 	locals.section = 'blog';
 	locals.filters = {
-		post: req.params.post,
+		post: req.params.post
 	};
 
 	// Load the current post
@@ -19,11 +19,12 @@ exports = module.exports = function (req, res) {
 
 		var q = Post.model.findOne({
 			state: 'published',
-			key: locals.filters.post,
+			key: locals.filters.post
 		}).populate('author categories');
 
 		q.exec(function (err, result) {
 			locals.post = result;
+			locals.page.title = result.name;
 			next(err);
 		});
 
@@ -125,4 +126,4 @@ exports = module.exports = function (req, res) {
 	// Render the view
 	view.render('post');
 
-}
+};
