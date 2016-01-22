@@ -25,7 +25,7 @@ Thing.add(
 	checkbox: { type: Boolean, initial: true },
 	date: { type: Types.Date },
 	dateTime: { type: Date },
-	html: { type: Types.Html },
+	html: { type: Types.Html }
 }, 'Complex Fields', {
 	select: { type: Types.Select, options: 'first, second, third', initial: true },
 	indentedCheckbox: { type: Boolean, initial: true, indent: true, note: 'This checkbox is indented' },

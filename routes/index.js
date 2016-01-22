@@ -27,7 +27,7 @@ keystone.set('404', function (req, res, next) {
 // Load Routes
 var routes = {
 	download: importRoutes('./download'),
-	views: importRoutes('./views'),
+	views: importRoutes('./views')
 };
 
 exports = module.exports = function (app) {
