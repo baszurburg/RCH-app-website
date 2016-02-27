@@ -10,7 +10,7 @@ module.exports = function (done) {
 		email: 'bas.zurburg@xs4all.nl',
 		password: 'delicionu',
 		isAdmin: true,
-		isProtected: false
+		isProtected: true
 	})
 		.save(done);
 };

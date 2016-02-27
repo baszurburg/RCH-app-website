@@ -45,7 +45,10 @@ exports = module.exports = function (app) {
 	//Explicitly define which lists we want exposed
 	restful.expose({
 		Post : {
-			methods: ["list", "retrieve", "create"]
+			methods: ["list", "retrieve","update", "create"]
+		},
+		User : {
+			methods: ["list", "retrieve"]
 		}
 	}).start();
 
