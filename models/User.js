@@ -3,7 +3,7 @@ var Types = keystone.Field.Types;
 
 var User = new keystone.List('User', {
 	// nodelete prevents people deleting the demo admin user
-	nodelete: true,
+	nodelete: true
 });
 
 User.add({
@@ -11,9 +11,9 @@ User.add({
 	email: { type: Types.Email, initial: true, required: true, index: true },
 	phone: { type: String, width: 'short' },
 	photo: { type: Types.CloudinaryImage, collapse: true },
-	password: { type: Types.Password, initial: true, required: false },
+	password: { type: Types.Password, initial: true, required: false }
 }, 'Permissions', {
-	isProtected: { type: Boolean, noedit: true, hidden: true },
+	isProtected: { type: Boolean, noedit: true, hidden: true }
 });
 
 // Provide access to Keystone

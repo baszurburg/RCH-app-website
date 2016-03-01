@@ -28,11 +28,14 @@ keystone.init({
 	'user model': 'User',
 	'cookie secret': process.env.COOKIE_SECRET || 'demo',
 
-	'ga property': process.env.GA_PROPERTY,
-	'ga domain': process.env.GA_DOMAIN,
+	'ga property': process.env.GA_PROPERTY || 'UA-12099281-14',
+	'ga domain': process.env.GA_DOMAIN || 'rch-events.nl',
 
 	'chartbeat property': process.env.CHARTBEAT_PROPERTY,
-	'chartbeat domain': process.env.CHARTBEAT_DOMAIN
+	'chartbeat domain': process.env.CHARTBEAT_DOMAIN,
+
+	'wysiwyg images': true,
+	'wysiwyg cloudinary images' : true
 
 });
 
