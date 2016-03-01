@@ -4,7 +4,7 @@ include ../mixins/post
 block content
 	.page-header
 		a(href='/keystone/posts?new').btn.btn-default.pull-right= user ? 'Write Post' : 'Sign in to Write Post'
-		h1=category ? category.name : 'Blog'
+		h1=category ? category.name : 'Nieuws'
 	.row
 		.col-sm-8
 			if filters.category && !category
@@ -40,13 +40,13 @@ block content
 				else
 					if category
 						.jumbotron.text-center
-							h3(style="margin-bottom:0;margin-top:0;") No posts in the category #{category.name}.
+							h3(style="margin-bottom:0;margin-top:0;") Geen nieuws in de categorie #{category.name}.
 					else
 						.jumbotron.text-center
-							h3(style="margin-bottom:0;margin-top:0;") There are no posts yet.
+							h3(style="margin-bottom:0;margin-top:0;") Er is nog geen nieuws.
 		.col-sm-4
 			if categories.length
-				.lead.text-muted Categories
+				.lead.text-muted Categorieën
 				ul.nav.nav-pills.nav-stacked
 					li(class=!category ? 'active' : null)
 						a(href='/blog') All
