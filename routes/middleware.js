@@ -56,6 +56,7 @@ exports.theme = function (req, res, next) {
 		'Lumen',
 		'Paper',
 		'Readable',
+		'rch',
 		'Sandstone',
 		'Simplex',
 		'Slate',
@@ -64,7 +65,7 @@ exports.theme = function (req, res, next) {
 		'United',
 		'Yeti'
 	];
-	res.locals.currentTheme = req.session.theme || 'Bootstrap';
+	res.locals.currentTheme = req.session.theme || 'rch';
 	next();
 };
 
