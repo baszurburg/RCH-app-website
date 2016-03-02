@@ -8,17 +8,17 @@ block content
 	.row
 		.col-sm-8
 			if filters.category && !category
-				h3 Invalid Category.
+				h3 Ongeldige categorie.
 			else
 				if posts.results.length
 					if posts.totalPages > 1
-						.lead.text-muted Showing 
+						.lead.text-muted Artikel&nbsp;
 							strong #{posts.first}
-							|  to 
-							strong #{posts.last}
-							|  of 
-							strong #{posts.total}
-							|  posts
+							|  -
+							strong  #{posts.last}
+							|  van
+							strong  #{posts.total}
+							|  berichten
 					else
 						.lead.text-muted Showing #{utils.plural(posts.results.length, '* post')}
 					.blog

@@ -6,12 +6,12 @@ include ../mixins/post
 block content
 	if !post
 		.jumbotron.text-center
-			h2 Invalid post...
+			h2 Ongeldig artikel...
 			p.lead Please check the url and try again
 	else
 		.row
 			.col-md-8.col-md-offset-2
-				p: a(href='/blog').text-muted &larr; back to the blog
+				p: a(href='/blog').text-muted &larr; terug naar nieuws
 				hr
 				article
 					header
@@ -20,9 +20,9 @@ block content
 							div(style="margin-bottom: 20px; margin-top: 20px;")
 								img(src=post._.image.fit(750,500)).img-responsive
 						div
-							p.text-muted.text-small Posted 
+							p.text-muted.text-small Datum
 								if post.publishedDate
-									| on 
+									|
 									time(datetime=post.publishedDate)=post._.publishedDate.format('MMMM Do, YYYY')
 								if post.categories && post.categories.length
 									|  in 
@@ -33,7 +33,7 @@ block content
 										else
 											|  
 								if post.author
-									| by #{post.author.name.full}
+									| door #{post.author.name.full}
 						hr
 						!= post.content.full
 					//-comments
