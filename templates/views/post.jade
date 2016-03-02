@@ -22,7 +22,6 @@ block content
 						div
 							p.text-muted.text-small Datum
 								if post.publishedDate
-									|
 									time(datetime=post.publishedDate)=post._.publishedDate.format('MMMM Do, YYYY')
 								if post.categories && post.categories.length
 									|  in 
