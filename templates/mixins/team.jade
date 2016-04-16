@@ -1,0 +1,12 @@
+mixin team(team)
+	article(data-ks-editable=editable(user, { list: 'Team', id: team.id })).media
+		.media-left
+			a(href='/teams/team/' + team.key)
+				if team.image.exists
+					img(src=team._.image.fit(120,80)).media-object
+				else
+					img(src="http://placehold.it/120x80").media-object
+		.media-body
+			h3.media-heading
+				a(href='/teams/team/' + team.key)= team.name
+			!= team.content.brief

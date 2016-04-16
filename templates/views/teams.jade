@@ -1,0 +1,39 @@
+extends ../layouts/default
+
+include ../mixins/team
+
+block content
+	.page-header
+		h1 Teams
+	.row
+		.col-sm-8
+			if teams.results.length
+				if teams.totalPages > 1
+					.lead.text-muted Teams&nbsp;
+						strong #{teams.first}
+						|  -
+						strong  #{teams.last}
+						|  van
+						strong  #{teams.total}
+						|  teams
+				else
+					.lead.text-muted Showing #{utils.plural(teams.results.length, '* team')}
+				.blog
+					each team in teams.results
+						+team(team)
+				if teams.totalPages > 1
+					ul.pagination
+						if teams.previous
+							li: a(href='?page=' + teams.previous): span.glyphicon.glyphicon-chevron-left
+						else
+							li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
+						each p, i in teams.pages
+							li(class=teams.currentPage === p ? 'active' : null)
+								a(href='?page=' + (p === '...' ? (i ? teams.totalPages : 1) : p ))= p
+						if teams.next
+							li: a(href='?page=' + teams.next): span.glyphicon.glyphicon-chevron-right
+						else
+							li.disabled: a(href='?page=' + teams.totalPages): span.glyphicon.glyphicon-chevron-right
+			else
+				.jumbotron.text-center
+						h3(style="margin-bottom:0;margin-top:0;") Er is nog geen teams.

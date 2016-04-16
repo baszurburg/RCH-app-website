@@ -1,0 +1,57 @@
+extends ../layouts/default
+
+include ../mixins/team
+
+block content
+	if !team
+		.jumbotron.text-center
+			h2 Ongeldig team...
+			p.lead Please check the url and try again
+	else
+		.row
+			.col-md-8.col-md-offset-2
+				p: a(href='/teams').text-muted &larr; terug naar teams
+				hr
+				article
+					header
+						h1= team.name
+						if team.image.exists
+							div(style="margin-bottom: 20px; margin-top: 20px;")
+								img(src=team._.image.fit(750,500)).img-responsive
+						div
+							p #{team.klasse}
+
+						div
+							table.table.table-bordered
+								tbody
+									if team.trainers && team.trainers.length
+										each trainer, trainer_i in team.trainers
+											tr
+												td
+													img(src=trainer._.photo.fit(80, 80)).img-responsive
+												td Trainer
+												td= trainer.name.full
+												td= trainer.email
+												td= trainer.phone
+									if team.leiders && team.leiders.length
+										each leider, leider_i in team.leiders
+											tr
+												td
+													img(src=leider._.photo.fit(80, 80)).img-responsive
+												td Leider
+												td= leider.name.full
+												td= leider.email
+												td= leider.phone
+						div
+							h3 Spelers
+							!= team.spelers
+						if team.content.extended
+							hr
+							div
+								h3 Overige informatie
+							!= team.content.extended
+						if team.sponsors
+							hr
+							div
+								h3 Sponsors
+								!= team.sponsors

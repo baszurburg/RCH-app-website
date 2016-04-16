@@ -25,6 +25,8 @@ exports = module.exports = function (app) {
 	app.get('/', routes.views.index);
 	app.get('/blog/:category?', routes.views.blog);
 	app.all('/blog/post/:post', routes.views.post);
+	app.get('/teams', routes.views.teams);
+	app.all('/teams/team/:team', routes.views.team);
 	app.get('/gallery', routes.views.gallery);
 	app.all('/contact', routes.views.contact);
 
@@ -36,7 +38,11 @@ exports = module.exports = function (app) {
 		Post : {
 			methods: ["list", "retrieve", "update", "create"]
 		},
+		Team : {
+			methods: ["list", "retrieve"]
+		},
 		User : {
+			show : ["_id", "email", "phone", "photo", "name"],
 			methods: ["list", "retrieve"]
 		}
 	}).start();
