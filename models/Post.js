@@ -18,7 +18,8 @@ Post.add({
 	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
 	externalName: { type: String },
 	externalLink: { type: String },
-	locked: { type: Boolean, initial: false }
+	locked: { type: Boolean, initial: false },
+	tag: { type: String }
 });
 
 Post.schema.virtual('content.full').get(function () {
