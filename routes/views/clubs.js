@@ -1,6 +1,6 @@
 var keystone = require('keystone');
 var async = require('async');
-var Team = keystone.list('Team');
+var Club = keystone.list('Club');
 
 exports = module.exports = function (req, res) {
 
@@ -8,35 +8,34 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals;
 
 	// Init locals
-	locals.section = 'teams';
+	locals.section = 'clubs';
 
-	locals.teams = [];
+	locals.clubs = [];
 
 
-	// Load the teams
+	// Load the clubs
 	view.on('init', function (next) {
 
-		var q = Team.paginate({
+		var q = Club.paginate({
 				page: req.query.page || 1,
- 				perPage: 10,
- 				maxPages: 10
+ 				perPage: 50,
+ 				maxPages: 100
 			})
 	//		.where('state', 'published')
-			.sort('order')
-			.populate('trainers leiders');
+			.sort('name');
 
-		if (locals.category) {
-			q.where('categories').in([locals.category]);
-		}
+		//if (locals.category) {
+		//	q.where('categories').in([locals.category]);
+		//}
 
 		q.exec(function (err, results) {
-			locals.teams = results;
+			locals.clubs = results;
 			next(err);
 		});
 
 	});
 
 	// Render the view
-	view.render('teams');
+	view.render('clubs');
 
 };

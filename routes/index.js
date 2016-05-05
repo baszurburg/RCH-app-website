@@ -27,6 +27,8 @@ exports = module.exports = function (app) {
 	app.all('/blog/post/:post', routes.views.post);
 	app.get('/teams', routes.views.teams);
 	app.all('/teams/team/:team', routes.views.team);
+	app.get('/clubs', routes.views.clubs);
+	app.all('/clubs/club/:club', routes.views.club);
 	app.get('/gallery', routes.views.gallery);
 	app.all('/contact', routes.views.contact);
 
@@ -36,6 +38,9 @@ exports = module.exports = function (app) {
 	//Explicitly define which lists we want exposed
 	restful.expose({
 		Post : {
+			methods: ["list", "retrieve", "update", "create"]
+		},
+		Club : {
 			methods: ["list", "retrieve", "update", "create"]
 		},
 		Team : {

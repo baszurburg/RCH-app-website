@@ -1,0 +1,8 @@
+mixin club(club)
+	article(data-ks-editable=editable(user, { list: 'Club', id: club.id })).media
+		.media-left
+			a(href='/clubs/club/' + club.key)
+				img(src="http://placehold.it/120x80").media-object
+		.media-body
+			h3.media-heading
+				a(href='/clubs/club/' + club.key)= club.name

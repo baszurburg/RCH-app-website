@@ -1,0 +1,48 @@
+extends ../layouts/default
+
+include ../mixins/club
+
+block content
+	if !club
+		.jumbotron.text-center
+			h2 Ongeldige club...
+			p.lead Please check the url and try again
+	else
+		.row
+			.col-md-8.col-md-offset-2
+				p: a(href='/clubs').text-muted &larr; terug naar clubs
+				hr
+				article
+					header
+						h1= club.name
+						if club.logo.exists
+							div(style="margin-bottom: 20px; margin-top: 20px;")
+								img(src="/clublogo/" + club.logo).img-responsive
+						div
+							p #{club.code}
+						div
+							h3 Street
+							!= club.street
+						div
+							h3 City
+							!= club.city
+						if club.url
+							div
+								h3 Url site
+							!= club.url
+						if club.logo
+							div
+								h3 Logo
+							!= club.logo
+						if club.tel
+							div
+								h3 Telefoon
+							!= club.tel
+						if club.longitude
+							div
+								h3 Longitude
+							!= club.longitude
+						if club.latitude
+							div
+								h3 Latitude
+							!= club.latitude
