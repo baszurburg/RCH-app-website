@@ -17,6 +17,8 @@ Team.add({
 	},
 	spelers: { type: Types.Html, wysiwyg: true, height: 150 },
 	sponsors: { type: Types.Html, wysiwyg: true, height: 150 },
+	url: { type: String },
+	uitslagenUrl: { type: String },
 	tag: { type: String },
 	order: { type: Types.Number }
 });
