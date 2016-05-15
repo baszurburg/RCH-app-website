@@ -13,6 +13,7 @@ Club.add({
     street: { type: String },
     city: { type: String},
     url: { type: String},
+    tenue: { type: String},
     logo: { type: String },
     tel: { type: String}
 });
