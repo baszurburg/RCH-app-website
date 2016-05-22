@@ -30,21 +30,16 @@ block content
 							div
 								h3 Url site
 							!= club.url
-						if club.tenue
-							div
-								h3 Tenue
-							!= club.tenue
-							img(src=club.tenue).img-responsive
 						if club.logo
 							div
 								h3 Logo
 							!= club.logo
-							img(src="/clublogo/" + club.logo).img-responsive
+							img(src="/clublogo/" + club.logo).meia-object
 						if club.tenue
 							div
 								h3 Tenue
 							!= club.tenue
-							img(src="/images/tenues/" + club.tenue).img-responsive
+							img(src="/images/tenues/" + club.tenue).media-object
 						if club.tel
 							div
 								h3 Telefoon
