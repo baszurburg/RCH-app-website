@@ -15,7 +15,8 @@ Club.add({
     url: { type: String},
     tenue: { type: String},
     logo: { type: String },
-    tel: { type: String}
+    tel: { type: String},
+    tenue: { type: String}
 });
 
 

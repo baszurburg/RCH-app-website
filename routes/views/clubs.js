@@ -1,5 +1,5 @@
 var keystone = require('keystone');
-var async = require('async');
+//var async = require('async');
 var Club = keystone.list('Club');
 
 exports = module.exports = function (req, res) {
@@ -21,12 +21,7 @@ exports = module.exports = function (req, res) {
  				perPage: 50,
  				maxPages: 100
 			})
-	//		.where('state', 'published')
 			.sort('name');
-
-		//if (locals.category) {
-		//	q.where('categories').in([locals.category]);
-		//}
 
 		q.exec(function (err, results) {
 			locals.clubs = results;
